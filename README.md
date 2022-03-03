@@ -1,4 +1,4 @@
-# http-request-mock-with-webpack-plugin
+# http-request-mock-integration-with-vue-by-webpack-plugin
 
 ## Project setup
 ```
