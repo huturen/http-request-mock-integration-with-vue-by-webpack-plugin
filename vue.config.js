@@ -9,7 +9,7 @@ module.exports = defineConfig({
         enable: process.env.NODE_ENV === 'development',
         entry: /src\/main\.js$/,
         dir: path.resolve(__dirname, 'mock/'),
-        proxyMode: 'matched'
+        proxyMode: 'marked'
       }),
     ],
   },
