@@ -2,11 +2,19 @@
 let mocker;
 
 const HttpRequestMock = require("http-request-mock");
-mocker = HttpRequestMock.setup("marked@localhost:9001");
+mocker = HttpRequestMock.setup();
 mocker.mock({
   "url": "/getResult",
   "body": require('./proto/getResult.js'),
   "delay": 10
+});
+mocker.mock({
+  "url": "https://some.api.com/dynamic",
+  "method": "GET",
+  "body": require('./sample.js'),
+  "header": {
+    "content-type": "application/json"
+  }
 });
 mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/photos/1",

@@ -1,6 +1,6 @@
 const { defineConfig } = require('@vue/cli-service')
 const path = require('path');
-const HttpRequestMockPlugin = require('http-request-mock/plugin/webpack');
+const HttpRequestMockPlugin = require('http-request-mock/plugin/webpack.js');
 
 module.exports = defineConfig({
   configureWebpack: {
@@ -9,7 +9,6 @@ module.exports = defineConfig({
         enable: process.env.NODE_ENV === 'development',
         entry: /src\/main\.js$/,
         dir: path.resolve(__dirname, 'mock/'),
-        proxyMode: 'marked'
       }),
     ],
   },
