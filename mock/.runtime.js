@@ -9,14 +9,6 @@ mocker.mock({
   "delay": 10
 });
 mocker.mock({
-  "url": "https://some.api.com/dynamic",
-  "method": "GET",
-  "body": require('./sample.js'),
-  "header": {
-    "content-type": "application/json"
-  }
-});
-mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/photos/1",
   "method": "GET",
   "body": require('./samples/bypass.js'),

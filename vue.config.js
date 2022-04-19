@@ -6,7 +6,8 @@ module.exports = defineConfig({
   configureWebpack: {
     plugins: [
       new HttpRequestMockPlugin({
-        enable: process.env.NODE_ENV === 'development',
+        // enable: process.env.NODE_ENV === 'development',
+        enable: true,
         entry: /src\/main\.js$/,
         dir: path.resolve(__dirname, 'mock/'),
       }),
