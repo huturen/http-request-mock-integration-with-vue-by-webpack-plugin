@@ -10,6 +10,7 @@ module.exports = defineConfig({
         enable: true,
         entry: /src\/main\.js$/,
         dir: path.resolve(__dirname, 'mock/'),
+        // proxyMode: 'matched',
       }),
     ],
   },

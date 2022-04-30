@@ -1,7 +1,7 @@
 /* eslint-disable */
 let mocker;
 
-const HttpRequestMock = require("http-request-mock/http-request-mock.js");
+const HttpRequestMock = require("http-request-mock");
 mocker = HttpRequestMock.setup();
 mocker.mock({
   "url": "/getResult",
@@ -75,7 +75,7 @@ mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/remote",
   "method": "GET",
   "body": require('./samples/remote.js'),
-  "remote": "https://jsonplaceholder.typicode.com/posts/1"
+  "remote": "http://jsonplaceholder.typicode.com/posts/1?a=1"
 });
 mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/request-info",

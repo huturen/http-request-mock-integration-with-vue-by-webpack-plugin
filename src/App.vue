@@ -45,7 +45,7 @@ export default {
         'https://jsonplaceholder.typicode.com/header': require('!raw-loader!../mock/samples/header.js').default,
         'https://jsonplaceholder.typicode.com/request-info?a=1': require('!raw-loader!../mock/samples/request.js').default,
         'https://jsonplaceholder.typicode.com/cache': require('!raw-loader!../mock/samples/cache.js').default,
-        'https://jsonplaceholder.typicode.com/remote': require('!!raw-loader!../mock/samples/remote.js').default,
+        'https://jsonplaceholder.typicode.com/remote?a=1': require('!!raw-loader!../mock/samples/remote.js').default,
         'https://jsonplaceholder.typicode.com/proxy-mode': require('!!raw-loader!../mock/samples/proxy.js').default,
       }
     }
@@ -62,6 +62,25 @@ export default {
     },
 
     doRequest() {
+      this.btnText = 'Loading...';
+      const now = Date.now();
+      fetch(this.url).then(res => {
+        this.spent = Date.now() - now;
+        res.json().then(json => {
+          this.responseBody = JSON.stringify(json, null, 2);
+        });
+        this.responseHeaders = JSON.stringify([...res.headers], null, 2);
+        this.btnText = 'Request';
+      }).catch(err => {
+        this.spent = Date.now() - now;
+        this.responseBody = err.message;
+        this.responseHeaders = '-';
+        this.btnText = 'Request';
+        console.log('error:', err);
+      });
+    },
+
+    doRequest2() {
       this.btnText = 'Loading...';
       const now = Date.now();
       axios.get(this.url).then(res => {
