@@ -1,7 +1,7 @@
 /* eslint-disable */
 let mocker;
 
-const HttpRequestMock = require("http-request-mock");
+const HttpRequestMock = require("http-request-mock/http-request-mock.js");
 mocker = HttpRequestMock.setup();
 mocker.mock({
   "url": "/getResult",
@@ -68,14 +68,13 @@ mocker.mock({
   "body": require('./samples/proxy.js'),
   "header": {
     "content-type": "application/json"
-  },
-  "proxy": true
+  }
 });
 mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/remote",
   "method": "GET",
   "body": require('./samples/remote.js'),
-  "remote": "https://jsonplaceholder.typicode.com/posts/1?a=1"
+  "remote": "https://jsonplaceholder.typicode.com/posts/1"
 });
 mocker.mock({
   "url": "https://jsonplaceholder.typicode.com/request-info",
